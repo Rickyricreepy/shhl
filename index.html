@@ -17,6 +17,7 @@
       </div>
     </div>
     <nav>
+      <a href="#about" data-i18n="nav_about">公司简介</a>
       <a href="#products" data-i18n="nav_products">产品</a>
       <a href="#applications" data-i18n="nav_applications">应用</a>
       <a href="#documents" data-i18n="nav_documents">资料</a>
@@ -42,22 +43,33 @@
       <div class="trust-row">
         <span data-i18n="trust_established">1995 Established</span>
         <span data-i18n="trust_years">30+ Years in Operation</span>
-        <span>Shanghai Warehouse</span>
+        <span data-i18n="trust_warehouse">上海自有仓库</span>
         <span>MSDS / COA Support</span>
       </div>
     </div>
   </section>
 
-  <section class="section intro">
+  <section id="about" class="section intro">
     <div>
-      <p class="eyebrow dark" data-i18n="intro_eyebrow">Company Positioning</p>
-      <h2 data-i18n="intro_title">30多年持续经营的上海化工原料供应商</h2>
-      <p data-i18n="intro_text">上海慧罗贸易有限公司成立于1995年2月7日，注册资本人民币500万元。我们帮助客户快速确认：供应什么产品、渠道是否稳定、资料是否齐全、如何快速联系报价。</p>
+      <p class="eyebrow dark" data-i18n="intro_eyebrow">Company Profile</p>
+      <h2 data-i18n="intro_title">上海慧罗贸易有限公司</h2>
+      <p data-i18n="intro_text">上海慧罗贸易有限公司成立于1995年2月7日，注册资本人民币500万元，是一家长期服务增塑剂、化工原料及相关下游行业客户的上海贸易企业。公司主营 DIDP、DINP、GL300/DOTP、DOP、ESO 等产品，业务覆盖进口供应、国内贸易与出口询盘支持。</p>
+      <ul class="profile-list">
+        <li data-i18n="profile_license">统一社会信用代码：91310110607506307Y</li>
+        <li data-i18n="profile_scope">经营范围涵盖化工产品及原料、五金交电、金属材料、通用机械、建筑装潢材料、汽配、日用百货及相关货物与技术进出口业务。</li>
+        <li data-i18n="profile_service">我们为客户提供稳定货源、MSDS / COA / TDS 资料支持、快速询盘响应和长期合作服务。</li>
+      </ul>
     </div>
-    <div class="stats-grid">
-      <div><strong>30+</strong><span data-i18n="stat_years">Years in Operation</span></div>
-      <div><strong>30+</strong><span>Product SKUs</span></div>
-      <div><strong>24h</strong><span>Inquiry Follow-up</span></div>
+    <div class="profile-side">
+      <a class="profile-image-card" href="assets/company-profile.jpg" target="_blank" rel="noopener">
+        <img src="assets/company-profile.jpg" alt="上海慧罗贸易有限公司公司简介与产品目录" />
+        <span data-i18n="profile_image_caption">查看公司简介与产品目录大图</span>
+      </a>
+      <div class="stats-grid">
+        <div><strong>30+</strong><span data-i18n="stat_years">Years in Operation</span></div>
+        <div><strong>30+</strong><span>Product SKUs</span></div>
+        <div><strong>24h</strong><span>Inquiry Follow-up</span></div>
+      </div>
     </div>
   </section>
 
@@ -182,14 +194,18 @@
   <script>
     const translations = {
       zh: {
-        nav_products:'产品', nav_applications:'应用', nav_documents:'资料', nav_quote:'获取报价',
+        nav_about:'公司简介', nav_products:'产品', nav_applications:'应用', nav_documents:'资料', nav_quote:'获取报价',
         brand_cn:'上海慧罗贸易有限公司', brand_en:'Shanghai Huiluo Trade Co., Ltd.',
         hero_eyebrow:'Plasticizer & Chemical Raw Materials Supplier',
         hero_title:'稳定供应增塑剂与化工原料<br><span class="hero-product-line">DIDP <em>|</em> DINP <em>|</em> GL300 <em>|</em> DOTP <em>|</em> DOP</span>',
         hero_text:'自1995年成立以来，上海慧罗已持续经营30多年，长期服务华东地区胶粘剂、润滑油、医用材料、塑料玩具、电缆料等行业客户，提供稳定货源、技术资料与快速交付支持。',
         hero_btn_quote:'立即询价 Request Quote', hero_btn_products:'查看产品 View Products', hero_more_products:'更多产品与资料 ↓',
-        trust_established:'1995年成立', trust_years:'30多年持续经营',
-        intro_eyebrow:'Company Positioning', intro_title:'30多年持续经营的上海化工原料供应商', intro_text:'上海慧罗贸易有限公司成立于1995年2月7日，注册资本人民币500万元。我们帮助客户快速确认：供应什么产品、渠道是否稳定、资料是否齐全、如何快速联系报价。',
+        trust_established:'1995年成立', trust_years:'30多年持续经营', trust_warehouse:'上海自有仓库',
+        intro_eyebrow:'Company Profile', intro_title:'上海慧罗贸易有限公司', intro_text:'上海慧罗贸易有限公司成立于1995年2月7日，注册资本人民币500万元，是一家长期服务增塑剂、化工原料及相关下游行业客户的上海贸易企业。公司主营 DIDP、DINP、GL300/DOTP、DOP、ESO 等产品，业务覆盖进口供应、国内贸易与出口询盘支持。',
+        profile_license:'统一社会信用代码：91310110607506307Y',
+        profile_scope:'经营范围涵盖化工产品及原料、五金交电、金属材料、通用机械、建筑装潢材料、汽配、日用百货及相关货物与技术进出口业务。',
+        profile_service:'我们为客户提供稳定货源、MSDS / COA / TDS 资料支持、快速询盘响应和长期合作服务。',
+        profile_image_caption:'查看公司简介与产品目录大图',
         stat_years:'持续经营',
         products_eyebrow:'Main Products', products_title:'主营产品中心', products_text:'每个产品未来都可以单独做详情页，用于百度、Google、1688 和出口获客。',
         prod_didp_text:'高性能增塑剂，适用于电线电缆、汽车内饰、PVC制品。', prod_dinp_text:'常用通用型增塑剂，适合人造革、薄膜、地板、电缆料。', prod_dehp_text:'传统通用增塑剂，适用于追求成本优势的下游客户。', prod_dotp_text:'环保替代型增塑剂。GL-300 为韩国 LG DOTP 产品，适合 PVC 墙纸、片材、玩具、文具、电线电缆等进口与出口应用。', prod_gl300_link:'查看 GL-300 彩色介绍 →', prod_eso_text:'国产环氧大豆油，兼具增塑与热稳定辅助作用，适用于PVC制品、电缆料、片材、薄膜及出口环保应用。', prod_totm_text:'耐高温、低挥发增塑剂，常用于高要求电缆与耐热制品。', prod_doa_text:'耐寒型增塑剂，适合低温环境下保持柔韧性的材料。', prod_quote:'获取报价 →',
@@ -200,14 +216,18 @@
         ph_name:'姓名 / Name', ph_company:'公司 / Company', ph_product:'产品需求 / Product Needed', ph_email:'邮箱 / Email', ph_message:'数量、用途、目的地 / Quantity, application, destination', form_submit:'提交询盘 Submit Inquiry'
       },
       en: {
-        nav_products:'Products', nav_applications:'Applications', nav_documents:'Documents', nav_quote:'Request Quote',
+        nav_about:'Company', nav_products:'Products', nav_applications:'Applications', nav_documents:'Documents', nav_quote:'Request Quote',
         brand_cn:'Shanghai Huiluo Trade Co., Ltd.', brand_en:'Plasticizer & Chemical Raw Materials Supplier',
         hero_eyebrow:'Plasticizer & Chemical Raw Materials Supplier',
         hero_title:'Reliable Plasticizer & Chemical Raw Material Supply<br><span class="hero-product-line">DIDP <em>|</em> DINP <em>|</em> GL300 <em>|</em> DOTP <em>|</em> DOP</span>',
         hero_text:'Founded in 1995, Shanghai Huiluo has operated continuously for more than 30 years, serving customers in adhesives, lubricants, medical materials, plastic toys, cable compounds and other industries across East China with stable supply, technical documents and fast delivery support.',
         hero_btn_quote:'Request Quote', hero_btn_products:'View Products', hero_more_products:'More products & documents ↓',
-        trust_established:'Established in 1995', trust_years:'30+ Years in Operation',
-        intro_eyebrow:'Company Positioning', intro_title:'A Shanghai chemical supplier operating for over 30 years', intro_text:'Shanghai Huiluo Trade Co., Ltd. was established on February 7, 1995 with registered capital of RMB 5 million. We help customers quickly confirm what products we supply, whether our channels are stable, what documents we can provide, and how to contact us for a quote.',
+        trust_established:'Established in 1995', trust_years:'30+ Years in Operation', trust_warehouse:'Own warehouse in Shanghai',
+        intro_eyebrow:'Company Profile', intro_title:'Shanghai Huiluo Trade Co., Ltd.', intro_text:'Shanghai Huiluo Trade Co., Ltd. was established on February 7, 1995 with registered capital of RMB 5 million. We are a Shanghai-based trading company serving customers in plasticizers, chemical raw materials and related downstream industries. Our key products include DIDP, DINP, GL300/DOTP, DOP and ESO, covering import supply, domestic trade and export inquiry support.',
+        profile_license:'Unified Social Credit Code: 91310110607506307Y',
+        profile_scope:'Business scope covers chemical products and raw materials, hardware and electrical products, metal materials, general machinery, building decoration materials, auto parts, daily-use goods, and related import/export of goods and technologies.',
+        profile_service:'We provide stable supply, MSDS / COA / TDS document support, fast inquiry response and long-term cooperation service.',
+        profile_image_caption:'View company profile and product list',
         stat_years:'Years in Operation',
         products_eyebrow:'Main Products', products_title:'Product Center', products_text:'Each product can later have its own detail page for Baidu, Google, 1688 and export lead generation.',
         prod_didp_text:'High-performance plasticizer for cable compounds, automotive interiors and PVC products.', prod_dinp_text:'General-purpose plasticizer for synthetic leather, films, flooring and cable compounds.', prod_dehp_text:'Traditional general-purpose plasticizer for downstream customers focused on cost advantages.', prod_dotp_text:'Eco-friendlier DOTP plasticizer. GL-300 is LG Chem DOTP for PVC wallpaper, sheets, toys, stationery, cable compounds and import/export applications.', prod_gl300_link:'View GL-300 Color Profile →', prod_eso_text:'China-made epoxidized soybean oil with plasticizing and auxiliary heat-stabilizing functions for PVC products, cable compounds, sheets, films and export-oriented applications.', prod_totm_text:'Heat-resistant, low-volatility plasticizer commonly used in demanding cable and heat-resistant products.', prod_doa_text:'Cold-resistant plasticizer that helps materials stay flexible in low-temperature environments.', prod_quote:'Get Quote →',
