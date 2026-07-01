@@ -160,3 +160,10 @@ figure.product-card-media{position:relative}
 .doc-modal-actions{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap}
 .doc-modal-actions a{color:#1f5daa;font-weight:900}
 @media(max-width:860px){.doc-access-head{align-items:flex-start;flex-direction:column}.doc-unlock-button{width:100%}.secured-docs.is-locked .doc-lock-overlay{min-height:100%;}.doc-lock-icon{width:64px;height:64px;font-size:30px}.doc-lock-overlay strong{font-size:23px}}
+
+/* Hero text overflow guard */
+.hero h1{max-width:min(1120px,100%)}
+.hero-product-line{display:flex;flex-wrap:wrap;max-width:100%;gap:8px 16px;white-space:normal;font-size:clamp(34px,4.05vw,56px)}
+.hero-product-line em{line-height:1}
+@media(min-width:1320px){.hero-product-line{flex-wrap:nowrap;font-size:clamp(42px,4.35vw,64px)}}
+@media(max-width:640px){.hero-product-line{gap:6px 10px;font-size:32px}}
