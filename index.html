@@ -19,9 +19,38 @@
     </div>
     <nav>
       <a href="#about" data-i18n="nav_about">公司简介</a>
-      <a href="#products" data-i18n="nav_products">产品</a>
+      <div class="nav-item has-mega">
+        <a href="#products" data-i18n="nav_products">产品</a>
+        <div class="mega-menu">
+          <div class="mega-menu-grid">
+            <div class="mega-menu-intro">
+              <p class="eyebrow dark" data-i18n="mega_eyebrow">产品中心</p>
+              <h3 data-i18n="mega_title">全部产品快速入口</h3>
+              <p data-i18n="mega_text">按客户常用采购方向整理，点击可进入对应产品页面或直接跳转询价。</p>
+            </div>
+            <div class="mega-menu-col">
+              <strong data-i18n="mega_plasticizers">增塑剂</strong>
+              <a href="didp.html">DIDP</a>
+              <a href="dinp.html">DINP</a>
+              <a href="gl300.html">GL300 / DOTP</a>
+              <a href="gl500.html">GL-500</a>
+              <a href="dop.html">DEHP / DOP</a>
+              <a href="totm.html">TOTM / TINTM</a>
+              <a href="doa-dos.html">DOA / DOS</a>
+            </div>
+            <div class="mega-menu-col">
+              <strong data-i18n="mega_stabilizers">稳定剂与辅助材料</strong>
+              <a href="mark-cz11.html">MARK CZ 11</a>
+              <a href="eso.html" data-i18n="mega_eso">ESO 环氧大豆油</a>
+              <a href="#documents" data-i18n="mega_documents">MSDS / COA / TDS 资料</a>
+              <a href="#contact" data-i18n="mega_quote">发送询盘</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <a href="#applications" data-i18n="nav_applications">应用</a>
       <a href="#documents" data-i18n="nav_documents">资料</a>
+      <a href="#knowledge" data-i18n="nav_knowledge">知识</a>
       <a href="#contact" class="nav-cta" data-i18n="nav_quote">获取报价</a>
       <div class="language-switch" aria-label="Language switcher">
         <button class="lang-btn active" type="button" data-lang="zh">中文</button>
@@ -166,7 +195,7 @@
     <div class="section-title">
       <p class="eyebrow dark" data-i18n="docs_eyebrow">技术资料</p>
       <h2 data-i18n="docs_title">资料与信任背书</h2>
-      <p data-i18n="docs_text">客户可直接下载主打产品 MSDS。环氧大豆油 ESO 已加入出口资料入口；所有下载资料均已加入“上海慧罗”水印，更多 TDS、COA 与批次资料可根据询盘需求提供。</p>
+      <p data-i18n="docs_text">MSDS、执行标准、CTI 与批次资料用于客户采购评估。为避免资料被误用，下载区需输入访问密码；如需查看，请通过邮箱向我们索取。</p>
     </div>
     <div class="doc-layout">
       <div class="license-panel">
@@ -176,7 +205,15 @@
           <span data-i18n="license_text">统一社会信用代码：91310110607506307Y｜注册资本：人民币500万元｜法定代表人：纪慧玲｜注册地址：上海市杨浦区黄兴路1728号1014室</span>
         </div>
       </div>
-      <div class="doc-cards">
+      <div class="doc-access">
+        <div class="doc-access-head">
+          <div>
+            <strong data-i18n="doc_access_title">资料下载权限</strong>
+            <span data-i18n="doc_access_text">资料预览已锁定。请输入密码，或邮件联系上海慧罗销售获取访问权限。</span>
+          </div>
+          <button class="doc-unlock-button" type="button" data-i18n="doc_unlock_btn">解锁资料</button>
+        </div>
+        <div class="doc-cards secured-docs is-locked" id="secured-docs">
         <a class="doc-card primary-doc" href="DIDP-MSDS-Huiluo.pdf" download>
           <strong>DIDP MSDS</strong>
           <small data-i18n="doc_watermark">已加上海慧罗水印</small>
@@ -211,11 +248,17 @@
           <strong>TDS / COA</strong>
           <span data-i18n="doc_tds_coa">技术数据表、检测报告与质量证明可按批次提供</span>
         </div>
+          <button class="doc-lock-overlay" type="button" aria-label="Locked documents">
+            <span class="doc-lock-icon">🔒</span>
+            <strong data-i18n="doc_locked_title">资料已锁定</strong>
+            <small data-i18n="doc_locked_text">点击输入密码，或通过邮箱索取访问权限</small>
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section knowledge">
+  <section id="knowledge" class="section knowledge">
     <div class="section-title">
       <p class="eyebrow dark" data-i18n="knowledge_eyebrow">行业知识</p>
       <h2 data-i18n="knowledge_title">行业知识中心</h2>
@@ -275,10 +318,26 @@
     <p>Website Demo for digital marketing and B2B inquiry conversion.</p>
   </footer>
 
+  <div class="doc-modal" id="doc-modal" aria-hidden="true">
+    <div class="doc-modal-card" role="dialog" aria-modal="true" aria-labelledby="doc-modal-title">
+      <button class="doc-modal-close" type="button" aria-label="Close">×</button>
+      <div class="doc-modal-lock">🔒</div>
+      <h2 id="doc-modal-title" data-i18n="doc_modal_title">输入资料访问密码</h2>
+      <p data-i18n="doc_modal_text">请输入上海慧罗销售提供的密码。没有密码可先发送邮件索取。</p>
+      <input id="doc-password" type="password" autocomplete="off" data-i18n-placeholder="doc_password_placeholder" placeholder="访问密码" />
+      <p class="doc-password-error" id="doc-password-error" data-i18n="doc_password_error">密码不正确，请检查后重试。</p>
+      <div class="doc-modal-actions">
+        <button class="doc-modal-submit" type="button" data-i18n="doc_password_submit">确认解锁</button>
+        <a href="mailto:sh-huiluo@163.com?subject=Document%20Access%20Password%20Request%20-%20Shanghai%20Huiluo" data-i18n="doc_request_password">邮件索取密码</a>
+      </div>
+    </div>
+  </div>
+
   <script>
     const translations = {
       zh: {
-        nav_about:'公司简介', nav_products:'产品', nav_applications:'应用', nav_documents:'资料', nav_quote:'获取报价',
+        nav_about:'公司简介', nav_products:'产品', nav_applications:'应用', nav_documents:'资料', nav_knowledge:'知识', nav_quote:'获取报价',
+        mega_eyebrow:'产品中心', mega_title:'全部产品快速入口', mega_text:'按客户常用采购方向整理，点击可进入对应产品页面或直接跳转询价。', mega_plasticizers:'增塑剂', mega_stabilizers:'稳定剂与辅助材料', mega_eso:'ESO 环氧大豆油', mega_documents:'MSDS / COA / TDS 资料', mega_quote:'发送询盘',
         brand_cn:'上海慧罗贸易有限公司', brand_en:'Shanghai Huiluo Trade Co., Ltd.',
         hero_eyebrow:'增塑剂与化工原料供应商',
         hero_title:'稳定供应增塑剂与化工原料<br><span class="hero-product-line">DIDP <em>|</em> DINP <em>|</em> GL300 <em>|</em> DOTP <em>|</em> DEHP / DOP</span>',
@@ -297,13 +356,14 @@
         more_products_eyebrow:'更多产品', more_products_title:'更多产品', more_products_text:'除主打产品外，我们也可根据客户用途提供更多增塑剂与配套资料。',
         prod_didp_text:'高性能增塑剂，适用于电线电缆、汽车内饰、PVC制品。', prod_didp_caption:'DIDP 样品 · 荷兰原产地 · 500g', prod_didp_link:'查看 DIDP 详情 →', prod_dinp_text:'常用通用型增塑剂，适合人造革、薄膜、地板、电缆料。', prod_dinp_caption:'DINP 样品 · 国产 · 500g', prod_dinp_link:'查看 DINP 详情 →', prod_dehp_text:'传统通用增塑剂，适用于追求成本优势的下游客户。', prod_dop_caption:'DEHP / DOP 样品 · 国产 · 500g', prod_dop_link:'查看 DEHP / DOP 详情 →', prod_dotp_text:'环保替代型增塑剂。GL-300 为韩国 LG DOTP 产品，适合 PVC 墙纸、片材、玩具、文具、电线电缆等进口与出口应用。', prod_gl300_caption:'GL-300 样品', prod_gl300_link:'查看 GL-300 彩色介绍 →', prod_gl500_caption:'GL-500 样品', prod_gl500_text:'GL-300 更高级版本，面向更高要求的环保增塑剂应用。', prod_gl500_link:'查看 GL-500 详情 →', prod_eso_title:'ESO 环氧大豆油', prod_eso_caption:'ESO 环氧大豆油样品', prod_eso_text:'国产环氧大豆油，兼具增塑与热稳定辅助作用，适用于PVC制品、电缆料、片材、薄膜及出口环保应用。ESBO 是其常见英文缩写。', prod_eso_link:'查看 ESO 详情 →', prod_totm_caption:'TOTM / TINTM 样品', prod_totm_text:'耐高温、低挥发增塑剂组合，适合高要求电缆、耐热制品和长期稳定性应用。', prod_totm_link:'查看 TOTM / TINTM 详情 →', prod_mark_cz11_caption:'MARK CZ 11 样品', prod_mark_cz11_text:'官方名称 MARK CZ 11，环保钙锌稳定剂产品，可查看仓库实拍与供应信息。', prod_mark_cz11_link:'查看 MARK CZ 11 详情 →', prod_doa_caption:'DOA / DOS 样品', prod_doa_text:'耐寒型增塑剂，适合低温环境下保持柔韧性的材料。', prod_doa_link:'查看 DOA / DOS 详情 →', prod_quote:'获取报价 →',
         apps_eyebrow:'应用行业', apps_title:'我们服务的下游行业', apps_text:'客户不只想看产品名称，更想知道你是否理解他的行业应用。', app_cable:'电线电缆料', app_auto:'汽车内饰', app_leather:'人造革', app_floor:'PVC地板', app_other:'胶管、薄膜、玩具、医疗材料', customer_title:'客户关心什么？', customer_text:'是否正品、价格是否稳定、是否有现货、资料是否齐全、物流是否及时、是否能长期合作。',
-        docs_eyebrow:'技术资料', docs_title:'资料与信任背书', docs_text:'客户可直接下载主打产品 MSDS。环氧大豆油 ESO 已加入出口资料入口；所有下载资料均已加入“上海慧罗”水印，更多 TDS、COA 与批次资料可根据询盘需求提供。', license_title:'营业执照信息', license_text:'统一社会信用代码：91310110607506307Y｜注册资本：人民币500万元｜法定代表人：纪慧玲｜注册地址：上海市杨浦区黄兴路1728号1014室', doc_watermark:'已加上海慧罗水印', doc_didp:'安全技术说明书 PDF 下载', doc_didp_spec_title:'DIDP 执行标准', doc_didp_spec:'执行标准 PDF 下载', doc_dinp:'安全技术说明书 PDF 下载', doc_eso_msds_title:'ESO MSDS', doc_eso_msds:'环氧大豆油安全技术说明书 PDF 下载', doc_gl300_msds:'GL-300 / DOTP 安全技术说明书 PDF 下载', doc_eso_cti_title:'ESO CTI', doc_eso_cti:'环氧大豆油检测资料 PDF 下载', doc_tds_coa:'技术数据表、检测报告与质量证明可按批次提供',
+        docs_eyebrow:'技术资料', docs_title:'资料与信任背书', docs_text:'MSDS、执行标准、CTI 与批次资料用于客户采购评估。为避免资料被误用，下载区需输入访问密码；如需查看，请通过邮箱向我们索取。', license_title:'营业执照信息', license_text:'统一社会信用代码：91310110607506307Y｜注册资本：人民币500万元｜法定代表人：纪慧玲｜注册地址：上海市杨浦区黄兴路1728号1014室', doc_access_title:'资料下载权限', doc_access_text:'资料预览已锁定。请输入密码，或邮件联系上海慧罗销售获取访问权限。', doc_unlock_btn:'解锁资料', doc_locked_title:'资料已锁定', doc_locked_text:'点击输入密码，或通过邮箱索取访问权限', doc_modal_title:'输入资料访问密码', doc_modal_text:'请输入上海慧罗销售提供的密码。没有密码可先发送邮件索取。', doc_password_placeholder:'访问密码', doc_password_error:'密码不正确，请检查后重试。', doc_password_submit:'确认解锁', doc_request_password:'邮件索取密码', doc_watermark:'已加上海慧罗水印', doc_didp:'安全技术说明书 PDF 下载', doc_didp_spec_title:'DIDP 执行标准', doc_didp_spec:'执行标准 PDF 下载', doc_dinp:'安全技术说明书 PDF 下载', doc_eso_msds_title:'ESO MSDS', doc_eso_msds:'环氧大豆油安全技术说明书 PDF 下载', doc_gl300_msds:'GL-300 / DOTP 安全技术说明书 PDF 下载', doc_eso_cti_title:'ESO CTI', doc_eso_cti:'环氧大豆油检测资料 PDF 下载', doc_tds_coa:'技术数据表、检测报告与质量证明可按批次提供',
         knowledge_eyebrow:'行业知识', knowledge_title:'行业知识中心', knowledge_text:'这是未来做搜索优化和出口获客的关键模块。', article1_title:'DIDP 与 DINP：如何选择？', article1_text:'帮助客户理解性能、价格、应用场景差异。', article2_title:'DOTP 是否能替代 DEHP？', article2_text:'围绕环保、成本和下游工艺做内容。', article3_title:'增塑剂价格走势分析', article3_text:'结合原油、库存、进口货源和下游需求。',
         contact_eyebrow:'销售联系', contact_title:'需要报价或技术资料？', contact_text:'请留下需求产品、数量、用途和目的地，我们会尽快跟进。', phone:'电话：021-55580911 / 021-55580912', email:'邮箱：sh-huiluo@163.com', address:'地址：上海市四平路2500号金岛大厦1206', qr_title:'扫码联系销售', qr_text:'扫码添加联系人，发送产品、数量、用途和目的地。', qr_whatsapp:'扫码添加 WhatsApp 联系人', qr_wechat_name:'微信', qr_wechat:'扫码添加微信好友',
         ph_name:'姓名', ph_company:'公司', ph_product:'产品需求', ph_email:'邮箱', ph_message:'数量、用途、目的地', form_submit:'提交询盘', form_note:'提交后将通过邮箱发送，我们会尽快回复。'
       },
       en: {
-        nav_about:'Company', nav_products:'Products', nav_applications:'Applications', nav_documents:'Documents', nav_quote:'Request Quote',
+        nav_about:'Company', nav_products:'Products', nav_applications:'Applications', nav_documents:'Documents', nav_knowledge:'Knowledge', nav_quote:'Request Quote',
+        mega_eyebrow:'Product Center', mega_title:'Full Product Navigation', mega_text:'Organized by common purchasing needs. Open product pages or send an inquiry directly.', mega_plasticizers:'Plasticizers', mega_stabilizers:'Stabilizers & Auxiliaries', mega_eso:'ESO / ESBO Epoxidized Soybean Oil', mega_documents:'MSDS / COA / TDS Documents', mega_quote:'Send Inquiry',
         brand_cn:'Shanghai Huiluo Trade Co., Ltd.', brand_en:'Plasticizer & Chemical Raw Materials Supplier',
         hero_eyebrow:'Plasticizer & Chemical Raw Materials Supplier',
         hero_title:'Reliable Plasticizer & Chemical Raw Material Supply<br><span class="hero-product-line">DIDP <em>|</em> DINP <em>|</em> GL300 <em>|</em> DOTP <em>|</em> DEHP / DOP</span>',
@@ -322,7 +382,7 @@
         more_products_eyebrow:'More Products', more_products_title:'More Products', more_products_text:'Beyond our key products, we can provide more plasticizers and supporting documents according to customer applications.',
         prod_didp_text:'High-performance plasticizer for cable compounds, automotive interiors and PVC products.', prod_didp_caption:'DIDP sample / Netherlands origin / 500g', prod_didp_link:'View DIDP Details →', prod_dinp_text:'General-purpose plasticizer for synthetic leather, films, flooring and cable compounds.', prod_dinp_caption:'DINP sample / China origin / 500g', prod_dinp_link:'View DINP Details →', prod_dehp_text:'Traditional general-purpose plasticizer for downstream customers focused on cost advantages.', prod_dop_caption:'DEHP / DOP sample / China origin / 500g', prod_dop_link:'View DEHP / DOP Details →', prod_dotp_text:'Eco-friendlier DOTP plasticizer. GL-300 is LG Chem DOTP for PVC wallpaper, sheets, toys, stationery, cable compounds and import/export applications.', prod_gl300_caption:'GL-300 sample', prod_gl300_link:'View GL-300 Color Profile →', prod_gl500_caption:'GL-500 sample', prod_gl500_text:'A higher-grade version above GL-300 for more demanding eco-oriented plasticizer applications.', prod_gl500_link:'View GL-500 Details →', prod_eso_title:'ESO / ESBO Epoxidized Soybean Oil', prod_eso_caption:'ESO / ESBO sample', prod_eso_text:'Epoxidized soybean oil, commonly abbreviated as ESO or ESBO, provides plasticizing and auxiliary heat-stabilizing functions for PVC products, cable compounds, sheets, films and export-oriented applications.', prod_eso_link:'View ESO Details →', prod_totm_caption:'TOTM / TINTM samples', prod_totm_text:'Heat-resistant, low-volatility plasticizer options for demanding cable compounds, heat-resistant products and long-term stability requirements.', prod_totm_link:'View TOTM / TINTM Details →', prod_mark_cz11_caption:'MARK CZ 11 sample', prod_mark_cz11_text:'Official product name MARK CZ 11, an eco calcium-zinc stabilizer with warehouse and supply information available.', prod_mark_cz11_link:'View MARK CZ 11 Details →', prod_doa_caption:'DOA / DOS samples', prod_doa_text:'Cold-resistant plasticizer that helps materials stay flexible in low-temperature environments.', prod_doa_link:'View DOA / DOS Details →', prod_quote:'Get Quote →',
         apps_eyebrow:'Industry Applications', apps_title:'Industries We Serve', apps_text:'Customers do not only want product names. They also want to know whether you understand their application scenarios.', app_cable:'PVC Cable Compounds', app_auto:'Automotive Interior', app_leather:'Synthetic Leather', app_floor:'Vinyl Flooring', app_other:'Hoses, films, toys and medical materials', customer_title:'What do customers care about?', customer_text:'Authentic supply, stable pricing, available inventory, complete documents, timely logistics and long-term cooperation.',
-        docs_eyebrow:'Technical Documents', docs_title:'Documents & Trust Proof', docs_text:'Customers can download MSDS files for key products directly. ESO / ESBO export documents have been added; all downloadable documents include a Shanghai Huiluo watermark, and TDS, COA and batch documents can be provided upon inquiry.', license_title:'Business License Information', license_text:'Unified Social Credit Code: 91310110607506307Y | Registered capital: RMB 5 million | Legal representative: Ji Huiling | Registered address: Room 1014, No. 1728 Huangxing Road, Yangpu District, Shanghai', doc_watermark:'Shanghai Huiluo watermarked', doc_didp:'Safety Data Sheet PDF Download', doc_didp_spec_title:'DIDP Sales Specification', doc_didp_spec:'Sales Specification PDF Download', doc_dinp:'Safety Data Sheet PDF Download', doc_eso_msds_title:'ESO / ESBO MSDS', doc_eso_msds:'Epoxidized Soybean Oil Safety Data Sheet PDF Download', doc_gl300_msds:'LG GL-300 / DOTP Safety Data Sheet PDF Download', doc_eso_cti_title:'ESO / ESBO CTI', doc_eso_cti:'Epoxidized Soybean Oil CTI / Test Document PDF Download', doc_tds_coa:'TDS, COA and quality certificates available by batch',
+        docs_eyebrow:'Technical Documents', docs_title:'Documents & Trust Proof', docs_text:'MSDS, sales specifications, CTI files and batch documents are used for customer evaluation. To prevent misuse, the download area requires an access password. Please contact us by email if you need access.', license_title:'Business License Information', license_text:'Unified Social Credit Code: 91310110607506307Y | Registered capital: RMB 5 million | Legal representative: Ji Huiling | Registered address: Room 1014, No. 1728 Huangxing Road, Yangpu District, Shanghai', doc_access_title:'Document Access', doc_access_text:'Document preview is locked. Enter the password or email Shanghai Huiluo sales to request access.', doc_unlock_btn:'Unlock Documents', doc_locked_title:'Documents Locked', doc_locked_text:'Click to enter password or request access by email', doc_modal_title:'Enter Document Access Password', doc_modal_text:'Enter the password provided by Shanghai Huiluo sales. If you do not have one, request it by email first.', doc_password_placeholder:'Access password', doc_password_error:'Incorrect password. Please check and try again.', doc_password_submit:'Unlock', doc_request_password:'Request password by email', doc_watermark:'Shanghai Huiluo watermarked', doc_didp:'Safety Data Sheet PDF Download', doc_didp_spec_title:'DIDP Sales Specification', doc_didp_spec:'Sales Specification PDF Download', doc_dinp:'Safety Data Sheet PDF Download', doc_eso_msds_title:'ESO / ESBO MSDS', doc_eso_msds:'Epoxidized Soybean Oil Safety Data Sheet PDF Download', doc_gl300_msds:'LG GL-300 / DOTP Safety Data Sheet PDF Download', doc_eso_cti_title:'ESO / ESBO CTI', doc_eso_cti:'Epoxidized Soybean Oil CTI / Test Document PDF Download', doc_tds_coa:'TDS, COA and quality certificates available by batch',
         knowledge_eyebrow:'Knowledge Center', knowledge_title:'Industry Knowledge Center', knowledge_text:'This is the key module for future SEO and export lead generation.', article1_title:'DIDP vs DINP: How to Choose?', article1_text:'Help customers understand differences in performance, price and applications.', article2_title:'Can DOTP Replace DEHP?', article2_text:'Explain compliance, cost and downstream processing factors.', article3_title:'Plasticizer Price Trend Analysis', article3_text:'Analyze crude oil, inventory, import supply and downstream demand.',
         contact_eyebrow:'Contact Sales', contact_title:'Need a quote or technical documents?', contact_text:'Please leave your required product, quantity, application and destination. Our team will follow up as soon as possible.', phone:'Tel: 021-55580911 / 021-55580912', email:'Email: sh-huiluo@163.com', address:'Address: Room 1206, Jindao Building, No. 2500 Siping Road, Shanghai, China', qr_title:'Scan to Contact Sales', qr_text:'Scan to add us, then send product, quantity, application and destination details.', qr_whatsapp:'Add us on WhatsApp', qr_wechat_name:'WeChat', qr_wechat:'Add us on WeChat',
         ph_name:'Name', ph_company:'Company', ph_product:'Product Needed', ph_email:'Email', ph_message:'Quantity, application, destination', form_submit:'Submit Inquiry', form_note:'Your inquiry will be sent by email and our team will reply as soon as possible.'
@@ -349,6 +409,61 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
     });
+
+    const DOCUMENT_PASSWORD = 'SHHL1995';
+    const securedDocs = document.getElementById('secured-docs');
+    const docModal = document.getElementById('doc-modal');
+    const docPassword = document.getElementById('doc-password');
+    const docPasswordError = document.getElementById('doc-password-error');
+
+    function unlockDocuments() {
+      securedDocs?.classList.remove('is-locked');
+      sessionStorage.setItem('shhl_docs_unlocked', 'true');
+      closeDocModal();
+    }
+
+    function openDocModal() {
+      docModal?.classList.add('is-open');
+      docModal?.setAttribute('aria-hidden', 'false');
+      docPasswordError?.classList.remove('is-visible');
+      setTimeout(() => docPassword?.focus(), 50);
+    }
+
+    function closeDocModal() {
+      docModal?.classList.remove('is-open');
+      docModal?.setAttribute('aria-hidden', 'true');
+      if (docPassword) docPassword.value = '';
+    }
+
+    document.querySelectorAll('.doc-unlock-button, .doc-lock-overlay').forEach(control => {
+      control.addEventListener('click', openDocModal);
+    });
+
+    securedDocs?.addEventListener('click', event => {
+      if (!securedDocs.classList.contains('is-locked')) return;
+      event.preventDefault();
+      openDocModal();
+    });
+
+    document.querySelector('.doc-modal-submit')?.addEventListener('click', () => {
+      if ((docPassword?.value || '').trim() === DOCUMENT_PASSWORD) {
+        unlockDocuments();
+      } else {
+        docPasswordError?.classList.add('is-visible');
+      }
+    });
+
+    docPassword?.addEventListener('keydown', event => {
+      if (event.key === 'Enter') document.querySelector('.doc-modal-submit')?.click();
+      if (event.key === 'Escape') closeDocModal();
+    });
+
+    document.querySelector('.doc-modal-close')?.addEventListener('click', closeDocModal);
+    docModal?.addEventListener('click', event => {
+      if (event.target === docModal) closeDocModal();
+    });
+
+    if (sessionStorage.getItem('shhl_docs_unlocked') === 'true') unlockDocuments();
 
     document.getElementById('quote-form')?.addEventListener('click', event => {
       if (event.target.tagName !== 'BUTTON') return;

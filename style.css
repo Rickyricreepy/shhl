@@ -117,3 +117,46 @@ figure.product-card-media{position:relative}
   .language-switch{display:flex}
   .didp-top-actions{width:100%;flex-direction:row;align-items:center;justify-content:space-between}
 }
+
+/* Product mega menu */
+.nav-item{position:relative;display:flex;align-items:center}
+.has-mega>a{display:inline-flex;align-items:center;gap:5px}
+.has-mega>a:after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;opacity:.7}
+.mega-menu{position:absolute;top:100%;left:50%;width:min(780px,86vw);transform:translate(-50%,14px);padding-top:18px;opacity:0;visibility:hidden;pointer-events:none;transition:.2s;z-index:30}
+.has-mega:hover .mega-menu,.has-mega:focus-within .mega-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+.mega-menu-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:22px;padding:26px;background:white;border:1px solid rgba(31,93,170,.12);border-radius:22px;box-shadow:0 24px 60px rgba(8,43,95,.18)}
+.mega-menu-intro h3{margin:6px 0 8px;color:#082b5f;font-size:24px;line-height:1.2}
+.mega-menu-intro p:last-child{margin:0;color:#667085;font-size:14px;line-height:1.55}
+.mega-menu-col{display:grid;align-content:start;gap:9px}
+.mega-menu-col strong{display:block;margin-bottom:6px;color:#082b5f;font-size:14px}
+.mega-menu-col a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:10px;color:#344054;font-weight:700}
+.mega-menu-col a:hover{background:#edf4ff;color:#1f5daa}
+@media(max-width:860px){.nav-item.has-mega{display:none}.navbar nav>a[data-i18n="nav_knowledge"]{display:none}}
+
+/* Locked document access */
+.doc-access{display:grid;gap:16px}
+.doc-access-head{display:flex;align-items:center;justify-content:space-between;gap:18px;background:white;border:1px solid rgba(31,93,170,.1);border-radius:20px;padding:18px 20px;box-shadow:0 12px 36px rgba(31,93,170,.06)}
+.doc-access-head strong{display:block;color:#082b5f;font-size:20px;line-height:1.25}
+.doc-access-head span{display:block;margin-top:4px;color:#667085;font-size:14px;line-height:1.55}
+.doc-unlock-button,.doc-modal-submit{border:0;border-radius:999px;background:#1f5daa;color:white;font-weight:900;cursor:pointer;white-space:nowrap;padding:12px 18px;box-shadow:0 10px 24px rgba(31,93,170,.22)}
+.secured-docs{position:relative}
+.secured-docs.is-locked .doc-card{filter:blur(3px);user-select:none}
+.secured-docs.is-locked .doc-card.primary-doc:hover{transform:none;border-color:rgba(216,164,65,.36);box-shadow:0 12px 36px rgba(31,93,170,.08)}
+.doc-lock-overlay{display:none}
+.secured-docs.is-locked .doc-lock-overlay{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:8px;border:0;border-radius:22px;background:rgba(8,43,95,.48);color:white;cursor:pointer;backdrop-filter:blur(1px);text-align:center;padding:24px}
+.doc-lock-icon{display:grid;place-items:center;width:74px;height:74px;border-radius:999px;background:rgba(255,255,255,.92);color:#082b5f;font-size:34px;box-shadow:0 18px 42px rgba(8,43,95,.24)}
+.doc-lock-overlay strong{color:white!important;font-size:26px}
+.doc-lock-overlay small{display:block;color:#f2f4f7;font-size:14px;font-weight:800}
+.doc-modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(6,31,69,.62);z-index:100;padding:24px}
+.doc-modal.is-open{display:grid}
+.doc-modal-card{position:relative;width:min(460px,100%);background:white;border-radius:24px;padding:32px;box-shadow:0 28px 80px rgba(6,31,69,.28)}
+.doc-modal-close{position:absolute;top:14px;right:16px;width:34px;height:34px;border:0;border-radius:999px;background:#eef2f6;color:#082b5f;font-size:24px;line-height:1;cursor:pointer}
+.doc-modal-lock{display:grid;place-items:center;width:62px;height:62px;border-radius:18px;background:#edf4ff;color:#082b5f;font-size:30px;margin-bottom:14px}
+.doc-modal-card h2{font-size:28px;color:#082b5f;margin:0 0 8px}
+.doc-modal-card p{color:#667085;margin:0 0 16px}
+.doc-modal-card input{width:100%;border:1px solid #d0d5dd;border-radius:14px;padding:14px 16px;font:inherit}
+.doc-password-error{display:none;color:#b42318!important;margin:10px 0 0!important;font-size:13px}
+.doc-password-error.is-visible{display:block}
+.doc-modal-actions{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap}
+.doc-modal-actions a{color:#1f5daa;font-weight:900}
+@media(max-width:860px){.doc-access-head{align-items:flex-start;flex-direction:column}.doc-unlock-button{width:100%}.secured-docs.is-locked .doc-lock-overlay{min-height:100%;}.doc-lock-icon{width:64px;height:64px;font-size:30px}.doc-lock-overlay strong{font-size:23px}}
